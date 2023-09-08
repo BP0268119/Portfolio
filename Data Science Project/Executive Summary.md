@@ -13,7 +13,7 @@ By utilising an open-source dataset and applying statistical techniques, this pr
 ### Methods
 
 •	Data collection: 
-The dataset used was sourced from Kaggle. It contained selected clinical and demographical information of patients, such as age, smoking history, and alcohol consumption. The dataset can be found in . 
+The dataset used was sourced from Kaggle. It contained selected clinical and demographical information of patients, such as age, smoking history, and alcohol consumption. The dataset used can be found [here](https://github.com/BP0268119/Portfolio/blob/main/Data%20Science%20Project/lung_cancer_data.csv).
 
 •	Data processing and exploratory analysis: 
 The data was uploaded to a Databricks notebook (Python) where it was examined for any missing or null values, or any duplicated entries. Then, the shape and distribution of the data was assessed, and normalisation was applied where necessary. These steps were completed to ensure the data quality and compatibility for model training.
