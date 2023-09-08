@@ -31,6 +31,7 @@ The model was evaluated using metrics such as accuracy, precision, recall, F1-sc
 ### Outcomes
 
 •	A logistic regression model with a high predictive accuracy for lung cancer
+
 •	Insights into the most significant factors influencing lung cancer risk
 
 
@@ -39,7 +40,9 @@ The model was evaluated using metrics such as accuracy, precision, recall, F1-sc
 Although this project is not at the scale or robustness necessary for any real-world impact, theoretically, it could several significant impacts if further developed:
 
 •	Early identification of individuals at high risk for lung cancer, allowing for proactive screening and preventive measures
+
 •	Improved patient outcomes due to timely interventions, which can lead to better treatment outcomes and potentially save lives
+
 •	Healthcare resources (e.g., funding, practitioners, equipment) could be allocated more efficiently by focusing on high-risk populations
 
 ### Future Directions
