@@ -2,7 +2,7 @@
 
 > This project aimed to develop a predictive model using logistic regression to anticipate whether an individual would develop lung cancer based on relevant clinical and demographic features. 
 
-### Problem
+## Problem
 
 In the UK, there are around 34,800 lung cancer deaths every year – approximately 95 per day. Lung cancer is the most common cancer death in the UK, accounting for 21% of all cancer deaths. It is also estimated that 79% of lung cancer cases in the UK are preventable (Cancer Research UK, 2019).  
 
@@ -10,10 +10,12 @@ However, earlier detection could improve patient outcomes (Koo et al., 2019). Ca
 
 By utilising an open-source dataset and applying statistical techniques, this project sought to provide a tool which could potentially be further developed to help healthcare professionals to identify high-risk patients, promote early intervention and tailor screening and prevention strategies accordingly.
 
-### Methods
+## Methods
+
+### The dataset used can be found [here](https://github.com/BP0268119/Portfolio/blob/main/Data%20Science%20Project/lung_cancer_data.csv).
 
 •	Data collection: 
-The dataset used was sourced from Kaggle. It contained selected clinical and demographical information of patients, such as age, smoking history, and alcohol consumption. The dataset used can be found [here](https://github.com/BP0268119/Portfolio/blob/main/Data%20Science%20Project/lung_cancer_data.csv).
+The dataset used was sourced from Kaggle. It contained selected clinical and demographical information of patients, such as age, smoking history, and alcohol consumption. 
 
 •	Data processing and exploratory analysis: 
 The data was uploaded to a Databricks notebook (Python) where it was examined for any missing or null values, or any duplicated entries. Then, the shape and distribution of the data was assessed, and normalisation was applied where necessary. These steps were completed to ensure the data quality and compatibility for model training.
@@ -28,14 +30,14 @@ Logistic regression, a well-established statistical technique for binary classif
 The model was evaluated using metrics such as accuracy, precision, recall, F1-score, and ROC-AUC to assess its performance.
 
 
-### Outcomes
+## Outcomes
 
 •	A logistic regression model with a high predictive accuracy for lung cancer
 
 •	Insights into the most significant factors influencing lung cancer risk
 
 
-### Impact
+## Impact
 
 Although this project is not at the scale or robustness necessary for any real-world impact, theoretically, it could several significant impacts if further developed:
 
@@ -45,10 +47,10 @@ Although this project is not at the scale or robustness necessary for any real-w
 
 •	Healthcare resources (e.g., funding, practitioners, equipment) could be allocated more efficiently by focusing on high-risk populations
 
-### Future Directions
+## Future Directions
 
 Future work may involve expanding the model's scope to include more diverse data sources, refining feature engineering techniques, and integrating advanced machine learning methods to improve prediction accuracy further. Additionally, ongoing data collection and model retraining will be necessary to ensure continued relevance and effectiveness.
 
-### Summary
+## Summary
 
 In conclusion, his project sought to develop a logistic regression model for predicting lung cancer diagnoses, contributing to early detection, improved patient outcomes, and more efficient healthcare resource allocation in the fight against this devastating disease.
