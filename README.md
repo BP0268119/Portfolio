@@ -12,7 +12,7 @@
 
 
 
-### Glad to see you here!  
+### Glad to see you here! 👋
 I'm a Data Science apprentice currently working in automotive tech. My role allows me to learn and develop on the job as well as attending webinars and completing coursework, thereby developing a wide range of vital skills to be a successful professional data scientist. 
 
 I enjoy using a wide range of tools such as DBT, BigQuery and Looker to help improve business processes and and generate solutions to new problems which occur in a rapidly changing business landscape.   
