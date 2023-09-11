@@ -92,3 +92,9 @@ The automation of the ETL pipeline reduced manual effort and potential errors. I
 The dashboard met the requirements of the GD team and improved their decision making and efficiency. They are now able to identify accounts who are signing up with false contact information and respond to them appropriately. After the dashboard was deployed, positive feedback was received, confirming that it functions exactly as they requested. As a result, more fraudulent accounts are being identified sooner, meaning that the business can improve its reputation and security, as well as reducing its financial and reputational risk. 
 
 Also, there is now a singular source of truth, so different teams who may be involved (such as Finance, Legal, etc.) can refer to the same data and reports. This enables efficient teamwork across different areas of the business, saving several teams significant time instead of wondering which team’s data source is correct. 
+
+
+## Future iterations and improvements
+The dashboard itself could be improved by including more visualisations. Currently, it only displays KPIs as numbers, and the graphs can only be seen upon further interaction. It would be more visually appealing and useful if the dashboard included some visualisations to help identify trends quickly and easily. 
+
+An overall improvement for this piece of work would be to create machine learning models to try and predict customer behaviour (i.e., if they are likely to try and sign up with false contact information) based on factors such as amount owed in bills, how often their contact details change, for example. This would complement the information contained in the dashboard and could help the DG team be even more efficient in this task of identifying and appropriately dealing with the concerning customers. 
