@@ -92,7 +92,7 @@ Data columns (total 16 columns):
 ```
 ## Exploratory Data Analysis (EDA)
 
-Exploratory data analysis was performed to gain an understanding of the dataset (Mukhiya and Ahmed, 2020). The data was all categorical with the exception of age, which was continuous. 
+Exploratory data analysis was performed to gain an understanding of the dataset (Mukhiya and Ahmed, 2020). The data was all categorical except for age, which was continuous. 
 
 Firstly, the balance of the data was explored. This began with confirming whether there were approximately even numbers of males and females to ensure there wouldn’t be a bias towards gender in the model.
 
@@ -169,9 +169,7 @@ F1-score: 0.8703703703703702
 
 As highlighted previously, the target variable (lung cancer) was highly imbalanced. Therefore, to reduce the risk of an inaccurate model, it was necessary to artificially balance this variable. 
 
-The first option considered was random oversampling. Whilst it can be considered to be the most robust oversampling technique (Chadha, 2021), on further research, it was found that this method could increase the chance of occurring overfitting and decrease the model performance, as it makes exact copies of entries in the minority class (Fernández et al., 2018).
-
-Instead, synthetic minority oversampling technique (SMOTE) was chosen. SMOTE generates new data entries by interjecting a point between observations within the data (Chadha, 2021) and so produces more varied data entries than random oversampling, helping to reduce the risk of overfitting and increasing robustness (Bordia, 2022).
+As such, synthetic minority oversampling technique (SMOTE) was chosen. SMOTE generates new data entries by interjecting a point between observations within the data (Chadha, 2021) and so produces more varied data entries than random oversampling, helping to reduce the risk of overfitting and increasing robustness (Bordia, 2022).
 
 ### Logistic Regression Model - Balanced Data
 
@@ -191,7 +189,7 @@ F1-score: 0.9122807017543859
 
 ### Logistic Regression Model - Imbalanced Data
 
-It was then thought that it would be pertinent to investigate the performance of a model which was trained using the original imbalanced data (i.e. had not undergone SMOTE). 
+It was then thought that it would be pertinent to investigate the performance of a model which was trained using the original imbalanced data (i.e., had not undergone SMOTE). 
 
 ![imbalanced conf matrix](https://github.com/BP0268119/Portfolio/assets/144491381/e8d502af-a027-4fd3-a499-2faa1fee2728)
 
