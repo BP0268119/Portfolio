@@ -1,6 +1,6 @@
 # Executive Summary
 
-> This project aimed to develop a predictive model using logistic regression to anticipate whether an individual would develop lung cancer based on relevant clinical and demographic features. 
+This project aimed to develop a predictive model using logistic regression to anticipate whether an individual would develop lung cancer based on relevant clinical and demographic features. 
 
 ## Problem
 
