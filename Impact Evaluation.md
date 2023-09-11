@@ -53,3 +53,21 @@ Created a dashboard in Looker which met the strict requirements of the DG team a
 
 #### Ad-Hoc Analysis: 
 The dashboard had filters available (e.g., type of customer, how many days’ worth of data) so that users could explore and utilise the data themselves to perform ad-hoc analyses. 
+
+
+## Analysis Performed
+
+### Data Quality
+Data profiling was conducted in order to identify any anomalies, such as missing values, different sources not matching (e.g., different contact details for the same customer, or different numbers of changes per day depending on which source was examined) and de-duplicating. 
+
+### Data Visualization
+The dashboard needed to contain two main figures (key performance indicators, KPIs): the number of the customers (referred to as “retailers”) who changed their primary phone number (referred to as “destination number”) and the total number of destination number changes, and this number needed to change depending on the date filter which could be changed to any length of time (i.e., anywhere from “all time” to the last 24 hours). 
+
+#### The grey box is present to protect PII.
+![dashboard](https://github.com/BP0268119/Portfolio/assets/144491381/14043fd4-1b77-4249-801f-1fdb3bdd598c)
+
+As well as this, Looker enables dashboard users to drill down into the data: both KPIs can be explored in further detail. In the example below, the user has the ability to alter the filters and measures (data attributes, in this example, counts). Here, the filters and measures have been selected to the number of destination number changes (red bars) and the number of retailers who changed their destination number (blue bars) can be seen over four weeks. 
+
+![Picture 1](https://github.com/BP0268119/Portfolio/assets/144491381/1375b3c1-1732-41d4-8eb9-0dae965e497d)
+
+
