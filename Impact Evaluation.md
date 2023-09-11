@@ -65,7 +65,7 @@ The dashboard was built in Looker using a SQL-like language called LookML. The b
 
 ![view edited](https://github.com/BP0268119/Portfolio/assets/144491381/689ff23f-48da-445d-be1b-495b50c1b194)
 
-Then the 'explore' is built - this is the workings behind the dashboard and only selected data is brought through to be interacted with and visualised. This is where the filters, dimensions and measures are dictated.
+Then the 'explore' is built - this is the workings behind the dashboard and only selected data is brought through to be interacted with and visualised. This is where the filters, dimensions and measures that will appear in the dashboard are established.
 
 ![explore edit](https://github.com/BP0268119/Portfolio/assets/144491381/c3d335fd-0267-46f0-8f88-45f3738d67f9)
 
@@ -80,3 +80,15 @@ As well as this, Looker enables dashboard users to drill down into the data: bot
 ![Picture 1](https://github.com/BP0268119/Portfolio/assets/144491381/1375b3c1-1732-41d4-8eb9-0dae965e497d)
 
 
+## Results, Impact and Value
+
+### Improved Data Quality
+Reduced erroneous data (missing or mismatched values) has led to improved and more efficient decision-making.
+
+### Automation
+The automation of the ETL pipeline reduced manual effort and potential errors. It has improved the DG team’s efficiency by removing a labour-intensive process, allowing them to pursue this task much quicker and therefore are able to focus on other tasks. 
+
+### Dashboard
+The dashboard met the requirements of the GD team and improved their decision making and efficiency. They are now able to identify accounts who are signing up with false contact information and respond to them appropriately. After the dashboard was deployed, positive feedback was received, confirming that it functions exactly as they requested. As a result, more fraudulent accounts are being identified sooner, meaning that the business can improve its reputation and security, as well as reducing its financial and reputational risk. 
+
+Also, there is now a singular source of truth, so different teams who may be involved (such as Finance, Legal, etc.) can refer to the same data and reports. This enables efficient teamwork across different areas of the business, saving several teams significant time instead of wondering which team’s data source is correct. 
