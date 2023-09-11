@@ -60,6 +60,15 @@ The dashboard had filters available (e.g., type of customer, how many days’ wo
 ### Data Quality
 Data profiling was conducted in order to identify any anomalies, such as missing values, different sources not matching (e.g., different contact details for the same customer, or different numbers of changes per day depending on which source was examined) and de-duplicating. 
 
+### Data Analytics
+The dashboard was built in Looker using a SQL-like language called LookML. The build involved stating the data relationships in the database, and then which dimensions, aggregates and calculations were to be present in the dashboard. Below are some examples of the building process. The process started with by creating a 'view' (the code bringing together the data needed from the cloud-based data warehouse).
+
+![view edited](https://github.com/BP0268119/Portfolio/assets/144491381/689ff23f-48da-445d-be1b-495b50c1b194)
+
+Then the 'explore' is built - this is the workings behind the dashboard and only selected data is brought through to be interacted with and visualised. This is where the filters, dimensions and measures are dictated.
+
+![explore edit](https://github.com/BP0268119/Portfolio/assets/144491381/c3d335fd-0267-46f0-8f88-45f3738d67f9)
+
 ### Data Visualization
 The dashboard needed to contain two main figures (key performance indicators, KPIs): the number of the customers (referred to as “retailers”) who changed their primary phone number (referred to as “destination number”) and the total number of destination number changes, and this number needed to change depending on the date filter which could be changed to any length of time (i.e., anywhere from “all time” to the last 24 hours). 
 
