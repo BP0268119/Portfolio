@@ -212,4 +212,11 @@ The performance of all three models is be summarised below:
 
 Based on this table and the AUC values, the model based on the imbalanced data has performed the best.
 
+## Insight
+As the aim of this project was to discover which factors were the most important in this dataset in relation to developing lung cancer, a feature importance graph was produced based on the best performing model. 
+
+![importance imbalanced](https://github.com/BP0268119/Portfolio/assets/144491381/8025197d-09a5-47ec-a89c-bb506714160c)
+
+The graph shows that the top three important variables were ‘chronic disease’, ‘fatigue’ and ‘allergy’. 
+
 
