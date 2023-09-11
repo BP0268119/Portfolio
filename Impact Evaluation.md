@@ -9,7 +9,7 @@ The overall impact this work has had includes improved data quality and traceabi
 
 ## Project Background
 
-The project was a result of a request raised by the Data Governance (DG) team because a concerning pattern of behaviour had been observed: customers who had yet to pay their bills, or who had been previously had their contract terminated by the organisation, were signing up for our services using false contact details to avoid being rejected or chased about their unpaid bills. Once they were signed up under these false details, they would then change those details back to their genuine contacts. 
+The project was a result of a request by the Data Governance (DG) team because a pattern of behaviour had been observed: customers who had yet to pay their bills, or who had been previously had their contract terminated by the organisation, were signing up for our services using false contact details to avoid being rejected. Once they were signed up under these false details, they would then change those details back to their genuine contacts. 
 
 This behaviour posed a financial and reputational risk to the organisation, as we aim to be a highly trusted and responsible organisation, which is only possible if those who sign up for our services are reputable and reliable. Therefore, addressing this issue was an urgent business priority. 
 
@@ -21,61 +21,55 @@ Initially, the DG team were manually searching through inconsistent and incomple
 ### Data Accessibility:
 Data was siloed in various systems, making it challenging for teams to access and use data effectively.
 
-### Analytics Efficiency:
-The lack of streamlined data processes led to inefficiencies in the DG team’s workflows.
-
 
 ## Approach
 
 ### Data Infrastructure & Tools
 
 #### Data Warehouse Implementation: 
-Using DBT (data build tool), I built the structure (and accompanying) documentation to house the incoming data in a centralised data warehouse using cloud-based infrastructure (Google Cloud Platform), providing a single place for storing and accessing data.
+Using DBT (data build tool), I built the structure to house the incoming data in a centralised, cloud-based data warehouse (Google Cloud Platform), providing a single place for storing and accessing data.
 
 #### ETL Pipeline: 
-Developed an ETL (extract, transform, load) pipeline to ensure data from disparate sources (several different tables and internal applications) were cleaned, transformed, and loaded into the data warehouse.
+Developed an ETL (extract, transform, load) pipeline to ensure data from disparate sources were cleaned, transformed, and loaded into the data warehouse.
 
 #### Data Governance:
-Implemented data governance policies and procedures to maintain data quality and consistency. The information being handled was personal identified information (PII), and so specific access requirements had to be applied and regular meetings with the DG team were arranged to ensure compliance with data governance and the Data Protection Act. 
+Implemented data governance procedures to maintain data quality and consistency. The information being handled was personal identified information (PII), and so specific access requirements had to be applied and regular meetings with the DG team were arranged to ensure compliance with data governance and the Data Protection Act. 
 
 ### Data Engineering
 
 #### Automation: 
 Automated the ETL pipeline using Apache Airflow – a software which allows pipelines to be ran automatically – so that the data ingestion and transformations were ran automatically every day.
 
-#### Scalability: 
-The infrastructure and pipeline were built in such a way that they will be able to handle different amounts of data each day, and so will be able to scale with a growing data volume.
-
 ### Data Visualisation
 
 #### Dashboard Development: 
-Created a dashboard in Looker which met the strict requirements of the DG team and complied with data governance. It was designed to be functional and to produce reports.
+Created a dashboard in Looker which met the requirements of the DG team and complied with data governance. 
 
 #### Ad-Hoc Analysis: 
-The dashboard had filters available (e.g., type of customer, how many days’ worth of data) so that users could explore and utilise the data themselves to perform ad-hoc analyses. 
+The dashboard had filters (e.g., type of customer) so that users could explore and utilise the data themselves to perform ad-hoc analyses. 
 
 
 ## Analysis Performed
 
 ### Data Quality
-Data profiling was conducted in order to identify any anomalies, such as missing values, different sources not matching (e.g., different contact details for the same customer, or different numbers of changes per day depending on which source was examined) and de-duplicating. 
+Data profiling was conducted to identify anomalies such as missing values, different sources not matching and de-duplicating. 
 
 ### Data Analytics
-The dashboard was built in Looker using a SQL-like language called LookML. The build involved stating the data relationships in the database, and then which dimensions, aggregates and calculations were to be present in the dashboard. Below are some examples of the building process. The process started with by creating a 'view' (the code bringing together the data needed from the cloud-based data warehouse).
+The dashboard was built in Looker using a SQL-like language called LookML. This involved stating the data relationships in the database. The process started with by creating a 'view' (the code bringing together the data needed from the data warehouse).
 
 ![view edited](https://github.com/BP0268119/Portfolio/assets/144491381/689ff23f-48da-445d-be1b-495b50c1b194)
 
-Then the 'explore' is built - this is the workings behind the dashboard and only selected data is brought through to be interacted with and visualised. This is where the filters, dimensions and measures that will appear in the dashboard are established.
+Then the 'explore' is built - only selected data is brought through to be featured on the dashboard. This is where the filters, dimensions and measures are established.
 
 ![explore edit](https://github.com/BP0268119/Portfolio/assets/144491381/c3d335fd-0267-46f0-8f88-45f3738d67f9)
 
-### Data Visualization
-The dashboard needed to contain two main figures (key performance indicators, KPIs): the number of the customers (referred to as “retailers”) who changed their primary phone number (referred to as “destination number”) and the total number of destination number changes, and this number needed to change depending on the date filter which could be changed to any length of time (i.e., anywhere from “all time” to the last 24 hours). 
+### Data Visualisation
+The dashboard needed to contain two main figures (key performance indicators, KPIs): the number of the customers who changed their primary phone number and the total number of destination number changes, and this number needed to change depending on the date filter which could be changed to any length of time. 
 
 #### The grey box is present to protect PII.
 ![dashboard](https://github.com/BP0268119/Portfolio/assets/144491381/14043fd4-1b77-4249-801f-1fdb3bdd598c)
 
-As well as this, Looker enables dashboard users to drill down into the data: both KPIs can be explored in further detail. In the example below, the user has the ability to alter the filters and measures (data attributes, in this example, counts). Here, the filters and measures have been selected to the number of destination number changes (red bars) and the number of retailers who changed their destination number (blue bars) can be seen over four weeks. 
+Also, both KPIs can be explored in further detail. The user can alter the filters and measures (data attributes).
 
 ![Picture 1](https://github.com/BP0268119/Portfolio/assets/144491381/1375b3c1-1732-41d4-8eb9-0dae965e497d)
 
@@ -83,18 +77,18 @@ As well as this, Looker enables dashboard users to drill down into the data: bot
 ## Results, Impact and Value
 
 ### Improved Data Quality
-Reduced erroneous data (missing or mismatched values) has led to improved and more efficient decision-making.
+Reduced erroneous data has led to improved and more efficient decision-making.
 
 ### Automation
-The automation of the ETL pipeline reduced manual effort and potential errors. It has improved the DG team’s efficiency by removing a labour-intensive process, allowing them to pursue this task much quicker and therefore are able to focus on other tasks. 
+Automation of the ETL pipeline reduced manual effort and errors. It has improved the DG team’s efficiency by removing a laborious process, allowing them to complete this task quicker and therefore complete other tasks.
 
 ### Dashboard
-The dashboard met the requirements of the GD team and improved their decision making and efficiency. They are now able to identify accounts who are signing up with false contact information and respond to them appropriately. After the dashboard was deployed, positive feedback was received, confirming that it functions exactly as they requested. As a result, more fraudulent accounts are being identified sooner, meaning that the business can improve its reputation and security, as well as reducing its financial and reputational risk. 
+The GD team are now able to identify, and deal with, accounts of concern. As a result, more fraudulent accounts are being identified sooner, meaning that the business can improve its reputation and security, as well as reducing its financial and reputational risk. 
 
-Also, there is now a singular source of truth, so different teams who may be involved (such as Finance, Legal, etc.) can refer to the same data and reports. This enables efficient teamwork across different areas of the business, saving several teams significant time instead of wondering which team’s data source is correct. 
+Also, there is now a singular source of truth, so different teams who may be involved (Finance, Legal, etc.) can refer to the same data. This enables efficient teamwork across different areas of the business, saving several teams from wondering whose data source is correct. 
 
 
 ## Future iterations and improvements
-The dashboard itself could be improved by including more visualisations. Currently, it only displays KPIs as numbers, and the graphs can only be seen upon further interaction. It would be more visually appealing and useful if the dashboard included some visualisations to help identify trends quickly and easily. 
+The dashboard could be improved by including more visualisations. It only displays KPIs numerically. It would be more visually appealing and useful if the dashboard included some visualisations to help identify trends quickly and easily. 
 
-An overall improvement for this piece of work would be to create machine learning models to try and predict customer behaviour (i.e., if they are likely to try and sign up with false contact information) based on factors such as amount owed in bills, how often their contact details change, for example. This would complement the information contained in the dashboard and could help the DG team be even more efficient in this task of identifying and appropriately dealing with the concerning customers. 
+Also, create machine learning models to predict customer behaviour based on factors such as amount owed in bills, how often their contact details change, etc. This could help the DG team be even more efficient in identifying and dealing with concerning customers. 
