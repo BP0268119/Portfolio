@@ -22,3 +22,35 @@ Data was siloed in various systems, making it challenging for teams to access an
 
 ### Analytics Efficiency:
 The lack of streamlined data processes led to inefficiencies in the DG team’s workflows.
+
+## Approach
+
+### Data Infrastructure & Tools
+
+#### Data Warehouse Implementation: 
+Using DBT (data build tool), I built the structure (and accompanying) documentation to house the incoming data in a centralised data warehouse using cloud-based infrastructure (Google Cloud Platform), providing a single place for storing and accessing data.
+
+#### ETL Pipeline: 
+Developed an ETL (extract, transform, load) pipeline to ensure data from disparate sources (several different tables and internal applications) were cleaned, transformed, and loaded into the data warehouse.
+
+#### Data Governance:
+Implemented data governance policies and procedures to maintain data quality and consistency. The information being handled was personal identified information (PII), and so specific access requirements had to be applied and regular meetings with the DG team were arranged to ensure compliance with data governance and the Data Protection Act. 
+
+### Data Engineering
+
+#### Automation: 
+Automated the ETL pipeline using Apache Airflow – a software which allows pipelines to be ran automatically – so that the data ingestion and transformations were ran automatically every day.
+
+#### Scalability: 
+The infrastructure and pipeline were built in such a way that they will be able to handle different amounts of data each day, and so will be able to scale with a growing data volume.
+
+### Data Visualisation
+
+#### Dashboard Development: 
+Created a dashboard in Looker which met the strict requirements of the DG team and complied with data governance. It was designed to be functional and to produce reports.
+
+#### Ad-Hoc Analysis: 
+The dashboard had filters available (e.g., type of customer, how many days’ worth of data) so that users could explore and utilise the data themselves to perform ad-hoc analyses. 
+
+
+
