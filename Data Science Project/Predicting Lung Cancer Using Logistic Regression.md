@@ -90,7 +90,7 @@ Data columns (total 16 columns):
  14  CHEST PAIN             276 non-null    int64 
  15  LUNG_CANCER            276 non-null    object
 ```
-### Exploratory Data Analysis (EDA)
+## Exploratory Data Analysis (EDA)
 
 Exploratory data analysis was performed to gain an understanding of the dataset (Mukhiya and Ahmed, 2020). The data was all categorical with the exception of age, which was continuous. 
 
@@ -102,7 +102,7 @@ Then the distribution of the target variable (lung cancer) was assessed. This, a
 
 ![Cancer dist](https://github.com/BP0268119/Portfolio/assets/144491381/48b8bfb1-d501-43f9-b807-804164cd991f)
 
-In this case, there was a large imbalance between those with and without lung cancer. Upon further inspection, approximately 90% of patients had lung cancer and 10% did not. This meant that, without intervention, the model would likely predict most patients to have cancer regardless of any other factors, meaning it would not be very useful. This result meant that the data would need to undergo further steps to balance the data used to train the model to make sure that the model is robust. 
+In this case, there was a large imbalance between those with and without lung cancer. Upon further inspection, approximately 90% of patients had lung cancer and 10% did not. This meant that, without intervention, the model would likely predict most patients to have cancer regardless of any other factors, meaning it would not be very useful and could be harmful if deployed for real patients - i.e., telling a patient they likely have lung cancer when they do not. This result meant that the data would need to undergo further steps to balance the data used to train the model to make sure that the model is robust. 
 
 ![Data proportions of cancer yesno](https://github.com/BP0268119/Portfolio/assets/144491381/b0bb6a94-fd3d-44b6-aed7-4462655f6771)
 
@@ -112,7 +112,104 @@ An attempt was made to explore correlations between factors by producing a corre
 
 Then the gender values we re-assigned from M and F to 1 and 2, respectively, as well as the lung cancer values from ‘NO’ and ‘YES’ to 1 and 2, respectively. This was undertaken to normalise these columns so that analysis could be completed.
 
-Next, a heatmap was produced to try to visualise any relationships between variables (Yi, 2020). Instead, this graph highlighted that the ‘age’ variable also needed to be normalised. This is because 'age' is a continuous variable and ranges from 21 to 87, yet all other variables are categorical with a value of either 1 or 2. As such, they have different ranges and so ‘age’ needed to be rescaled to ensure all the data was using a common scale (Urvashi Jaitley, 2018; Towards AI, 2019).
+Next, a heatmap was produced to try to visualise any relationships between variables (Yi, 2020). Instead, this graph highlighted that the ‘age’ variable also needed to be normalised. This is because 'age' is a continuous variable and ranges from 21 to 87, yet all other variables are categorical with a value of either 1 or 2. This could pose an issue as the model could favour features with a wider range of values. As such, they have different ranges and so ‘age’ needed to be rescaled to ensure all the data was using a common scale (Urvashi Jaitley, 2018; Towards AI, 2019).
 
 ![heatmap age needs normalising](https://github.com/BP0268119/Portfolio/assets/144491381/a8b7dc82-c5b2-4f77-ac50-ebcb1b1035a7)
+
+Another approach attempted was principal component analysis (PCA). However, again due to the categorical nature of the data, this did not prove useful.
+
+![number of components](https://github.com/BP0268119/Portfolio/assets/144491381/511cad02-c9e6-41ce-b267-f4a53a56455a)
+
+## Model Building and Analysis
+
+### Test/train split
+
+Firstly, the data was split into a training dataset and a test dataset (75% and 25%, respectively).
+
+```
+train, test = train_test_split(data_clean, test_size = 0.25, random_state = 42, stratify = data_clean['LUNG_CANCER'])
+X_train, y_train, X_test, y_test = train.drop(['LUNG_CANCER'], axis = 1), train['LUNG_CANCER'], \
+                                   test.drop(['LUNG_CANCER'], axis = 1), test['LUNG_CANCER']
+
+```
+
+### Normalisation
+
+Then all the data was normalised so that all values would now fall between 0 and 1. As mentioned previously, this was to ensure that all variables were using the same scale to try and eliminate any biases and make the model robust.
+
+```
+normalizer = MinMaxScaler()
+X_train = pd.DataFrame(normalizer.fit_transform(X_train), columns = X_train.columns)
+X_test = pd.DataFrame(normalizer.transform(X_test), columns = X_test.columns)
+```
+
+### Baseline Model
+
+Firstly, a very basic model was produced to be used as a baseline, so that subsequent models could be compared to it to see if they perform better or worse. For this, only three variables were chosen: ‘fatigue’, ‘allergy’ and ‘chronic disease’. The performance of this, and all subsequent models, was assessed by a confusion matrix, accuracy, precision, recall, F1 score and AUC. 
+
+The confusion matrix is a summary of how the model has classified the data. One axis of the matrix represents how the model predicted (in this case, whether the patients had cancer or not) and the other axis is the truth of the data. This allows comparison of models by looking at how well they predicted true positives and trye negatives (Silwal, 2022).
+
+Broadly, accuracy defines how correct the model is, precision is how well it classifies the positive predictions, recall is known as sensitivity or the true positive rate, and F1 score is a weighted average of precision and recall, making it more useful than accuracy, especially in the context of imbalanced data (Harikrishnan, 2019; Silwal, 2022).
+
+AUC, or the area under the receiver operating characteristic (ROC) curve, represents the ability of a binary model to discern between the two states. For example, an AUC of 0.5 would mean that the model had no ability to classify data, whereas an AUC of 1.0 would represent perfect prediction (Hoo, Candlish and Teare, 2017).
+
+![baseline conf matrix](https://github.com/BP0268119/Portfolio/assets/144491381/76c73cb5-a429-4f58-bd8f-9e8c76b13f2c)
+
+```
+evaluation_metrics_baseline(baseline_Y_test_data, y_pred_baseline)
+Accuracy: 0.7971014492753623
+Precision: 0.9591836734693877
+Recall: 0.7966101694915254
+F1-score: 0.8703703703703702
+```
+
+![roc baseline](https://github.com/BP0268119/Portfolio/assets/144491381/785a39a9-291b-47dc-a072-479ee5b7d0c7)
+
+### Oversampling
+
+As highlighted previously, the target variable (lung cancer) was highly imbalanced. Therefore, to reduce the risk of an inaccurate model, it was necessary to artificially balance this variable. 
+
+The first option considered was random oversampling. Whilst it can be considered to be the most robust oversampling technique (Chadha, 2021), on further research, it was found that this method could increase the chance of occurring overfitting and decrease the model performance, as it makes exact copies of entries in the minority class (Fernández et al., 2018).
+
+Instead, synthetic minority oversampling technique (SMOTE) was chosen. SMOTE generates new data entries by interjecting a point between observations within the data (Chadha, 2021) and so produces more varied data entries than random oversampling, helping to reduce the risk of overfitting and increasing robustness (Bordia, 2022).
+
+### Logistic Regression Model - Balanced Data
+
+This model was trained on the data produced by SMOTE.
+
+![balanced conf matrix](https://github.com/BP0268119/Portfolio/assets/144491381/7540c8e3-de41-4a59-b6e4-59e29aea8319)
+
+```
+evaluation_metrics_balanced(y_test, y_pred_balanced)
+Accuracy: 0.855072463768116 
+Precision: 0.9454545454545454 
+Recall: 0.8813559322033898 
+F1-score: 0.9122807017543859
+```
+
+![roc balanced](https://github.com/BP0268119/Portfolio/assets/144491381/87161acc-c761-40fd-ae62-6845c493facf)
+
+### Logistic Regression Model - Imbalanced Data
+
+It was then thought that it would be pertinent to investigate the performance of a model which was trained using the original imbalanced data (i.e. had not undergone SMOTE). 
+
+![imbalanced conf matrix](https://github.com/BP0268119/Portfolio/assets/144491381/e8d502af-a027-4fd3-a499-2faa1fee2728)
+
+```
+evaluation_metrics_imbalanced(y_test, y_pred_imbalanced)
+Accuracy: 0.927536231884058 
+Precision: 0.9354838709677419 
+Recall: 0.9830508474576272 
+F1-score: 0.9586776859504132
+```
+
+![roc imbalanced](https://github.com/BP0268119/Portfolio/assets/144491381/80de7325-77ff-489d-bd0a-ece2f72c72a4)
+
+### Model Performance
+The performance of all three models is be summarised below:
+
+<img width="351" alt="models table" src="https://github.com/BP0268119/Portfolio/assets/144491381/0eb9b32a-63d7-464a-a3a0-a55ddfe3bcaf">
+
+Based on this table and the AUC values, the model based on the imbalanced data has performed the best.
+
 
