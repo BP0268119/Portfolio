@@ -12,7 +12,7 @@ By utilising an open-source dataset and applying statistical techniques, this pr
 
 ## Methods
 
-### The dataset used can be found [here](https://github.com/BP0268119/Portfolio/blob/main/Data%20Science%20Project/lung_cancer_data.csv).
+### The dataset used can be found [here](https://github.com/BP0268119/Portfolio/blob/main/Data-Science-Project/lung-cancer-data.csv).
 
 •	Data collection: 
 The dataset used was sourced from Kaggle. It contained selected clinical and demographical information of patients, such as age, smoking history, and alcohol consumption. 
