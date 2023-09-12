@@ -6,7 +6,7 @@ In this project, I aimed to develop a predictive model to identify whether a pat
 
 
 ## Data Source
-The [data](https://github.com/BP0268119/Portfolio/blob/main/Data%20Science%20Project/lung_cancer_data.csv) was a CSV sourced from Kaggle (Nelson, 2022). It contains patient information such as gender, age, their smoking status, whether they consumed alcohol and whether they displayed symptoms such as wheezing, coughing and shortness of breath. 
+The [data](https://github.com/BP0268119/Portfolio/blob/main/Data-Science-Project/lung-cancer-data.csv) was a CSV sourced from Kaggle (Nelson, 2022). It contains patient information such as gender, age, their smoking status, whether they consumed alcohol and whether they displayed symptoms such as wheezing, coughing and shortness of breath. 
 
 ## Data Processing 
 
